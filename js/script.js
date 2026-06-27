@@ -69,6 +69,9 @@ monogatari.assets ('images', {
 
 // Define the backgrounds for each scene.
 monogatari.assets ('scenes', {
+	'airplane': 'airplane.jpg',
+    'fuyuki': 'fuyuki.jpg',
+	'book': 'book.jpg'
 
 });
 
@@ -82,17 +85,30 @@ monogatari.characters ({
 
 	'e': {
 		name: '에미야 시로',
-		color: '#5bcaff'
+		color: '#5bcaff',
+		directory: 'siro',
+		sprites: {
+			normal: 'siro_default.png'
+		}
 	},
 
 	'x': {
 		name: '수수께끼의 히로인 X',
-		color: '#5bcaff'
+		color: '#5bcaff',
+		directory: 'x',
+		sprites: {
+			normal: 'x_default.png',
+			happy: 'x_happy.png'
+		}
 	},
 
 	'st': {
 		name: '승무원',
-		color: '#fff132'
+		color: '#fff132',
+		directory: 'st',
+		sprites: {
+			normal: 'st_default.png'
+		}
 	},
 
 	'a': {
@@ -165,6 +181,8 @@ monogatari.script ({
 	// 	'end'
 		'"....나는 아발론의 골짜기로 간다. 그곳에서 이 깊은 상처를 고치리라." ——토머스 맬러리, 《아서왕의 죽음》',
 
+		'show scene fuyuki with fadeIn',
+
 		'고등학교를 졸업하자마자 짐을 싸게 될 줄은 몰랐다.',
 
 		'라이가 씨가 어디에서 연을 댔는지, 영국 바스 근교의 작은 복원 공방에서 한동안 견습으로 지내게 되었다.',
@@ -195,9 +213,13 @@ monogatari.script ({
 
 		'얼마간의 작별인 셈이다. 언제까지일지는 몰라도.',
 
+		'show scene airplane with fadeIn',
+
 		'그건 그렇고, 녀석의 말이 맞다.',
 
 		'나는 마술 세계 한복판보다는 이런 일이 어울리는 인간이겠지.',
+
+		'show scene book with fadeIn',
 
 		'책장을 다시 넘긴다.',
 
@@ -207,11 +229,15 @@ monogatari.script ({
 
 		'단지 우연히 좋은 기회가 생겼을 뿐이다. 그렇게 생각하고 있다.',
 
+		'show scene airplane with fadeIn',
+
 		'그런데도, 창밖의 금빛을 보고 있자면.',
 		
 		'어느 휴일의 하루는, 한 번쯤. 그녀가 서 있던 땅을 밟아볼 수도 있을까.',
 
 		'——그런 부질없는 생각이.',
+
+		'show character st normal',
 
 		'st 기내식은 카레로 하시겠습니까, 비프로 하시겠습니까?',
 
@@ -219,8 +245,14 @@ monogatari.script ({
 		
 		'st 과정이 중요한거죠.',
 
+		
+
 		'승무원의 목소리에 고개를 들자.',
-	
+
+		'show character st normal at left with fadeIn',
+		
+		'show character e normal at right with fadeIn',
+
 		'e 너는...!',
 	
 		'반사적으로 입 안에서 하나의 이름이 떠올랐다.',
@@ -251,8 +283,16 @@ monogatari.script ({
 
 		'e ...너는, 나의 세이버가 아니야.',
 
+
+
 		'st 정확합니다.',
 	
+		'show character e normal at right',
+
+		'hide character st',
+
+		'show character x normal at left with fadeIn',
+
 		'x 저는 수수께끼의 히로인 X. ——지금 이곳에 난무하는 알트리아 페이스를 제거하기 위해 파견되었습니다.',
 
 		'e 지금 이 곳이라니..',
@@ -366,18 +406,36 @@ monogatari.script ({
 				}
 			}
 		},
+
+		'hide character x',
+
+		'hide character siro'
 	],
 		
 	'Give': [
+
+		'show character e normal at right',
+
+		'show character x normal at left',
+
 		'그녀는 잠시 눈을 깜빡이더니 조금의 사양도 없이 빵을 도로 받았다. ',
 		'엄청나게 먹고 싶었나 보네...',
 
 		'한 번이라도 나에게 양보한 것만으로도 가상할 정도다.',
 
+		'hide character x',
+
+		'hide character e',
+
+
 		'jump story1'
 	],
 	
 	'story1': [
+
+		'show character e normal at right',
+
+		'show character x normal at left',
 
 		'x 만일 저의 "선택"에 협조하실 거라면',	
 
@@ -393,6 +451,12 @@ monogatari.script ({
 
 		'x 아무튼, 좋은 여행 되시길.',
 
+		'hide character x with fadeOut',
+
+		'hide character e',
+
+		'show character e normal',
+
 		'순식간에 사라져버렸네...',
 	
 		'a 승객 여러분, 곧 착륙하겠습니다.',
@@ -400,11 +464,18 @@ monogatari.script ({
 		'a ——영면의 땅에 당도하신 것을 환영합니다.',
 
 		'....',
+
+		'hide character e',
+
+		'show scene book with fadeIn',
+
 		'안내방송에 놀라, 무릎 위에 올려두었던 책을 떨어트리고 말았다.',
 		'좁은 이코노미 석이었기에 끙끙거리며 책을 다시 주웠다.',
 		'내지에 먼지가 묻지는 않았는지 툭툭 털고 있자니, 문득 한 대목이 눈에 들어왔다.',
 		'"왕은 죽지 않았다.',
-		'다만, 섬으로 건너갔을 뿐이다."'
+		'다만, 섬으로 건너갔을 뿐이다."',
+
+		'아서왕을 찾습니다 체험판을 플레이해주셔서 감사합니다.'
 		
 	]
 	

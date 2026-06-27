@@ -237,3 +237,13 @@ input[type=range]::-ms-fill-upper {
 @media screen and (min-width: 500em) {
 
 }
+
+[data-screen="game"] [data-character].left {
+    left: 5% !important; 
+    transform: translateX(0);
+}
+
+[data-screen="game"] [data-character].right {
+    right: 5% !important; 
+    transform: translateX(0);
+}
