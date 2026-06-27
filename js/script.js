@@ -64,6 +64,8 @@ monogatari.assets ('videos', {
 
 // Define the images used in the game.
 monogatari.assets ('images', {
+	'cg_airplane1': 'image.png',
+	'cg_airplane2': 'image2.png'
 
 });
 
@@ -249,9 +251,9 @@ monogatari.script ({
 
 		'승무원의 목소리에 고개를 들자.',
 
-		'show character st normal at left with fadeIn',
+		'show character st normal at right with fadeIn',
 		
-		'show character e normal at right with fadeIn',
+		'show character e normal at left with fadeIn',
 
 		'e 너는...!',
 	
@@ -287,11 +289,11 @@ monogatari.script ({
 
 		'st 정확합니다.',
 	
-		'show character e normal at right',
+		'show character e normal at left',
 
 		'hide character st',
 
-		'show character x normal at left with fadeIn',
+		'show character x normal at right with fadeIn',
 
 		'x 저는 수수께끼의 히로인 X. ——지금 이곳에 난무하는 알트리아 페이스를 제거하기 위해 파견되었습니다.',
 
@@ -370,12 +372,20 @@ monogatari.script ({
 		'e ...사실 식사는 됐어, 너 먹을래?',
 		
 		'x 사양은하지않겠습니다감사합니다잘먹겠습니다!',
+
+		'show scene #f7f6f6 with fadeIn',
+
+		'show image cg_airplane1 with fadeIn',
 		
 		'녀석은 뻔뻔하게도 내 옆자리에 털썩 앉았다.',
 		
 		'그리고, 실은 내내 이 순간만을 기다려왔다는 듯이 기내식 상자를 열어젖혔고,',
 		
 		'빛의 속도로 수저를 뜯은 뒤 순식간에 그 안에 든 카레를 해치우기 시작했다.',
+
+		'hide image cg_airplane1 with fadeOut',
+
+		'show image cg_airplane2 with fadeIn',
 		
 		'민첩한 손놀림을 보니, 비록 다른 존재일지라도 그녀의 무언가를 공유하는 건 사실인게 분명하다.',
 		
@@ -386,6 +396,14 @@ monogatari.script ({
 		'맛있게 먹는 모습을 보니 왠지 마음이 가벼워진다.',
 		
 		'x 잘먹었습니다!!',
+
+		'hide image cg_airplane2 with fadeOut',
+
+		'show scene airplane with fadeIn',
+
+		'show character e normal at left',
+
+		'show character x normal at right',
 
 		'x 아, 이건 후식을 위한 빵으로 보이는군요.',
 
@@ -414,9 +432,9 @@ monogatari.script ({
 		
 	'Give': [
 
-		'show character e normal at right',
+		'show character e normal at left',
 
-		'show character x normal at left',
+		'show character x normal at right',
 
 		'그녀는 잠시 눈을 깜빡이더니 조금의 사양도 없이 빵을 도로 받았다. ',
 		'엄청나게 먹고 싶었나 보네...',
@@ -433,9 +451,9 @@ monogatari.script ({
 	
 	'story1': [
 
-		'show character e normal at right',
+		'show character e normal at left',
 
-		'show character x normal at left',
+		'show character x normal at right',
 
 		'x 만일 저의 "선택"에 협조하실 거라면',	
 
@@ -474,6 +492,9 @@ monogatari.script ({
 		'내지에 먼지가 묻지는 않았는지 툭툭 털고 있자니, 문득 한 대목이 눈에 들어왔다.',
 		'"왕은 죽지 않았다.',
 		'다만, 섬으로 건너갔을 뿐이다."',
+
+		'',
+		'show scene #000000 with fadeIn',
 
 		'아서왕을 찾습니다 체험판을 플레이해주셔서 감사합니다.'
 		

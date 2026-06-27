@@ -45,6 +45,10 @@ button:hover {
 
 /* Main Menu Styling */
 [data-screen="main"] {
+	background-image: url("../assets/images/main-bg.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
 }
 
